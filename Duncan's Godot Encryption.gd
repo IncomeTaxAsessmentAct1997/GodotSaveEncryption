@@ -1,7 +1,7 @@
 extends Node
 
-const ENCRYPTION_KEY = "ThisIsA32ByteEncryptionKey!!"
-const SALT = "FNaFSL_CustomNight_Salt_2024"
+const ENCRYPTION_KEY = "This is your super secret password so don't tell anyone, shh..."
+const SALT = "This is a just as secret, super secret password"
 
 func encrypt_data(data: Variant) -> PackedByteArray:
 	var json_string = JSON.stringify(data)
@@ -34,4 +34,5 @@ func decrypt_data(encrypted: PackedByteArray) -> Variant:
 	if (json_string + SALT).sha256_text() != decrypted_string.substr(separator_pos + 1):
 		return null
 	
+
 	return JSON.parse_string(json_string)
